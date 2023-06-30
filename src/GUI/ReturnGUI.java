@@ -1,5 +1,7 @@
 package GUI;
 
+import fun.Window;
+
 import javax.swing.*;
 
 public class ReturnGUI {
@@ -16,6 +18,7 @@ public class ReturnGUI {
         frame.setContentPane(new ReturnGUI().returnpanel);
         frame.pack();
         frame.setVisible(true);
+        Window.tocenter(frame);
     }
 
 

@@ -2,6 +2,7 @@ package GUI;
 
 import Data.Systemdata;
 import fun.LoginFUN;
+import fun.Window;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginGUI {
-
+    static JFrame frame;
     private JPanel login;
     private JTextField userField;
     private JPasswordField passField;
@@ -35,7 +36,7 @@ public class LoginGUI {
                 islogin = new LoginFUN().loginfun(type,username,password);
                 if(islogin&&type==0){
                     userGUI.show();
-
+                    LoginGUI.close();
                 }else if(islogin){
 
                 }else {
@@ -47,12 +48,14 @@ public class LoginGUI {
 
 
     public static void show() {
-        JFrame frame = new JFrame("LoginGUI");
+        frame = new JFrame("LoginGUI");
         frame.setContentPane(new LoginGUI().login);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
+        Window.tocenter(frame);
     }
-
+    public static void close(){
+        frame.setVisible(false);
+    }
 }

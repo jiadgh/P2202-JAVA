@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import GUI.*;
+import fun.*;
 public class userGUI {
     private JButton exitButton;
     private JPanel user;
@@ -39,6 +40,7 @@ public class userGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        Window.tocenter(frame);
     }
 
 

@@ -1,102 +1,106 @@
 package classlib;
 
-import java.util.Objects;
+import java.util.Date;
 
-public  abstract class User {
-    String name;//用户姓名
-    String password;//用户密码
-    String phone;//用户电话
-    String A1;//回答1
-    String A2;//回答2
-    int A3;//回答3年龄
-    int borrow;//借书次数
-    String heading;
+public class User {
+    int id;
+    String user;
+    String pass;
+    String phone;
+    String avatar;
+    int borrownum;
+    int booklistnum;
+    String A1;
+    String A2;
+    Date A3;
 
-    public String getHeading() {
-        return heading;
-    }
-
-    public void setHeading(String heading) {
-        this.heading = heading;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name)
-    {
-        this.name=name;
+    public void setId(int id) {
+        this.id = id;
     }
-    public String getName()
-    {
-        return name;
+
+    public String getUser() {
+        return user;
     }
-    public void setPassword(String password){
-        this.password=password;
+
+    public void setUser(String user) {
+        this.user = user;
     }
-    public String getPassword()
-    {
-        return password;
+
+    public String getPass() {
+        return pass;
     }
-    public void setPhone(String phone)
-    {
-        this.phone=phone;
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
-    public String getPhone(){
-        return phone;
+
+    public String getAvatar() {
+        return avatar;
     }
-    public void setA1(String A1)
-    {
-        this.A1=A1;
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
-    public String getA1(){
+
+    public int getBorrownum() {
+        return borrownum;
+    }
+
+    public void setBorrownum(int borrownum) {
+        this.borrownum = borrownum;
+    }
+
+    public int getBooklistnum() {
+        return booklistnum;
+    }
+
+    public void setBooklistnum(int booklistnum) {
+        this.booklistnum = booklistnum;
+    }
+
+    public String getA1() {
         return A1;
     }
-    public void setA2(String A2){
-        this.A2=A2;
+
+    public void setA1(String a1) {
+        A1 = a1;
     }
-    public String getA2()
-    {
+
+    public String getA2() {
         return A2;
     }
-    public void setA3(int A3)
-    {
-        this.A3=A3;
+
+    public void setA2(String a2) {
+        A2 = a2;
     }
-    public int getA3()
-    {
+
+    public Date getA3() {
         return A3;
     }
 
-    public int getBorrow() {
-        return borrow;
+    public void setA3(Date a3) {
+        A3 = a3;
+    }
+    public User(){
+
+    }
+    public User(String user, String pass,String phone) {
+        this.user = user;
+        this.pass = pass;
+        this.phone = phone;
     }
 
-    public void setBorrow(int borrow) {
-        this.borrow = borrow;
+    public User(String user, String pass, String phone, String avatar, String a1, String a2, Date a3) {
+        this.user = user;
+        this.pass = pass;
+        this.phone = phone;
+        this.avatar = avatar;
+        A1 = a1;
+        A2 = a2;
+        A3 = a3;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return A3 == user.A3 && Objects.equals(name, user.name) && Objects.equals(password, user.password) && Objects.equals(phone, user.phone) && Objects.equals(A1, user.A1) && Objects.equals(A2, user.A2);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, password, phone, A1, A2, A3);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", phone='" + phone + '\'' +
-                ", A1='" + A1 + '\'' +
-                ", A2='" + A2 + '\'' +
-                ", A3=" + A3 +
-                '}';
-    }
-
-    public abstract void A(User user);
 }

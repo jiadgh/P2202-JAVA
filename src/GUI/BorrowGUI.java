@@ -1,5 +1,7 @@
 package GUI;
 
+import fun.Window;
+
 import javax.swing.*;
 
 public class BorrowGUI {
@@ -19,5 +21,6 @@ public class BorrowGUI {
         frame.setContentPane(new BorrowGUI().borrow);
         frame.pack();
         frame.setVisible(true);
+        Window.tocenter(frame);
     }
 }
