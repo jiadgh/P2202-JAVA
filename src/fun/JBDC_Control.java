@@ -17,7 +17,7 @@ public class JBDC_Control {
      * @return {@link Connection}
      */
     public static Connection getConnection(String user ,String pass) {
-        String url = "jdbc:mysql://localhost:3306/test";
+        String url = "jdbc:mysql://localhost:3306/library";
 
         Connection connection = null;
         try {

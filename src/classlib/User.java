@@ -1,7 +1,5 @@
 package classlib;
 
-import java.util.Date;
-
 public class User {
     int id;
     String user;
@@ -12,7 +10,11 @@ public class User {
     int booklistnum;
     String A1;
     String A2;
-    Date A3;
+    String A3;
+
+    public User() {
+
+    }
 
     public int getId() {
         return id;
@@ -78,14 +80,14 @@ public class User {
         A2 = a2;
     }
 
-    public Date getA3() {
+    public String getA3() {
         return A3;
     }
 
-    public void setA3(Date a3) {
+    public void setA3(String a3) {
         A3 = a3;
     }
-    public User(){
+    public User(int anInt, String string, String rsString, String phone, String avatar, String s, String string1, String a1, String a2, String rsString1){
 
     }
     public User(String user, String pass,String phone) {
@@ -94,7 +96,7 @@ public class User {
         this.phone = phone;
     }
 
-    public User(String user, String pass, String phone, String avatar, String a1, String a2, Date a3) {
+    public User(String user, String pass, String phone, String avatar, String a1, String a2, String a3) {
         this.user = user;
         this.pass = pass;
         this.phone = phone;
@@ -102,5 +104,24 @@ public class User {
         A1 = a1;
         A2 = a2;
         A3 = a3;
+    }
+
+    public User(int id, String user, String pass, String phone, String avatar, int borrownum, int booklistnum, String a1, String a2, String a3) {
+        this.id = id;
+        this.user = user;
+        this.pass = pass;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.borrownum = borrownum;
+        this.booklistnum = booklistnum;
+        A1 = a1;
+        A2 = a2;
+        A3 = a3;
+    }
+
+    @Override
+    public String toString() {
+        String out = "id:"+id+";user"+user+";pass:"+pass+";phone:"+phone+"\n";
+        return out;
     }
 }
