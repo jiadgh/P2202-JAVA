@@ -1,6 +1,6 @@
 package GUI;
 
-import Data.Systemdata;
+
 import fun.LoginFUN;
 import fun.Window;
 
@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginGUI {
     static JFrame frame;
@@ -21,8 +23,16 @@ public class LoginGUI {
     private JLabel Register;
     private JLabel Retrieve;
     public LoginGUI(){
-
-
+        Register.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                RegisterDialog dialog = new RegisterDialog();
+                dialog.pack();
+                dialog.setVisible(true);
+                System.exit(0);
+            }
+        });
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

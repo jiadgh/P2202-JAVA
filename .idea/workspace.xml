@@ -33,14 +33,22 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Project/Project practice/P2202/P2202-JAVA/src/GUI",
+    "last_opened_file_path": "D:/Project/Project practice/P2202/P2202-JAVA/src/lib/mysql-connector-java.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "onboarding.tips.debug.path": "D:/Project/IntelliJ IDEA/P2202-JAVA/src/Main.java",
+    "project.structure.last.edited": "库",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -61,6 +69,7 @@
       <workItem from="1688018420527" duration="49000" />
       <workItem from="1688018868460" duration="4174000" />
       <workItem from="1688047985146" duration="11545000" />
+      <workItem from="1688111211373" duration="1782000" />
     </task>
     <servers />
   </component>
