@@ -7,7 +7,25 @@ public class User {
     String phone;
     String avatar;
     int borrownum;
+    String borrowbooklist;
     int booklistnum;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getBorrowbooklist() {
+        return borrowbooklist;
+    }
+
+    public void setBorrowbooklist(String borrowbooklist) {
+        this.borrowbooklist = borrowbooklist;
+    }
+
     String A1;
     String A2;
     String A3;
@@ -87,32 +105,15 @@ public class User {
     public void setA3(String a3) {
         A3 = a3;
     }
-    public User(int anInt, String string, String rsString, String phone, String avatar, String s, String string1, String a1, String a2, String rsString1){
 
-    }
-    public User(String user, String pass,String phone) {
-        this.user = user;
-        this.pass = pass;
-        this.phone = phone;
-    }
-
-    public User(String user, String pass, String phone, String avatar, String a1, String a2, String a3) {
-        this.user = user;
-        this.pass = pass;
-        this.phone = phone;
-        this.avatar = avatar;
-        A1 = a1;
-        A2 = a2;
-        A3 = a3;
-    }
-
-    public User(int id, String user, String pass, String phone, String avatar, int borrownum, int booklistnum, String a1, String a2, String a3) {
+    public User(int id, String user, String pass, String phone, String avatar, int borrownum, String borrowbooklist, int booklistnum, String a1, String a2, String a3) {
         this.id = id;
         this.user = user;
         this.pass = pass;
         this.phone = phone;
         this.avatar = avatar;
         this.borrownum = borrownum;
+        this.borrowbooklist = borrowbooklist;
         this.booklistnum = booklistnum;
         A1 = a1;
         A2 = a2;

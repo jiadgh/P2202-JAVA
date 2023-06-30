@@ -1,5 +1,7 @@
 package fun;
 
+import classlib.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,8 +17,21 @@ public class LoginFUN {
      * @return boolean T成功，F失败
      */
     public boolean loginfun(int type,String user,String pass){
+        switch (type){
+            case 0:
+                User userlogin = JBDC_User.querryUserbyPhone(user);
 
-        return true;
+                if (userlogin!=null){
+                    if (userlogin.getPass().equals(pass)){
+                        System.out.println(userlogin.getUser()+"登录成功");
+                        return true;
+                    }
+                }
+                break;
+            case 1:
+                break;
+        }
+        return false;
     }
 }
 

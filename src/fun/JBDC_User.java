@@ -6,39 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JBDC_User {
-    /**
-     * 增加用户
-     *
-     * @param user  用户名
-     * @param phone 电话号码
-     * @return boolean T增加成功，F增加失败
-     */
-    public static boolean adduser(String user,String phone,String pass){
-        new JBDC_Control().getConnection(system.getMysql_admin(),system.getMysql_pass());
-        String sql = "";
-        return true;
-    }
 
-    /**
-     * 通过ID删除用户
-     *
-     * @param id 用户ID
-     * @return boolean
-     */
-    public static boolean deleteUserbyID(int id){
-
-        return true;
-    }
-    public static boolean deleteUserbyPhone(String Phone){
-        return true;
-    }
-    public static User querryUserbyPhone(String phone){
-
-
-
-        return new User();
-    }
-    public static List queryStudent() {
+    public static List readStudentData() {
          List<User> userList = new ArrayList<>();
          Connection connection = JBDC_Control.getConnection("root","123456");
 
@@ -46,7 +15,21 @@ public class JBDC_User {
             Statement  statement = connection.createStatement();
             String sql = "SELECT * FROM user";
             ResultSet rs = statement.executeQuery(sql);
-
+            while (rs.next()){
+                userList.add(new User(
+                        rs.getInt(1),//ID
+                        rs.getString(2), //user
+                        rs.getString(3),//pass
+                        rs.getString(4),//phone
+                        rs.getString(5),//avatar
+                        rs.getInt(6),//borrownum
+                        rs.getString(7),//borrowbooklist
+                        rs.getInt(7),//booklistnum
+                        rs.getString(8),//a1
+                        rs.getString(9),//a2
+                        rs.getString(10)//a3
+                ));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -56,9 +39,20 @@ public class JBDC_User {
 
     public static void main(String[] args) {
         List<User> userList = new ArrayList<>();
-        userList = queryStudent();
+        userList = readStudentData();
         for (User user : userList){
             System.out.println(user);
         }
+    }
+
+    public static User querryUserbyPhone(String phone) {
+        List<User> userList =  readStudentData();
+        for (User user:userList){
+            if (user.getPhone().equals(phone)){
+
+                return user;
+            }
+        }
+        return null;
     }
 }

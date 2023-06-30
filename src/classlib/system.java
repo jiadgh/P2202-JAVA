@@ -1,5 +1,7 @@
 package classlib;
 
+import java.util.function.Function;
+
 public class system {
     static String mysql_admin = "root";
     static String mysql_pass = "123456";
@@ -9,4 +11,5 @@ public class system {
     public static String getMysql_admin() {
         return mysql_admin;
     }
+
 }
