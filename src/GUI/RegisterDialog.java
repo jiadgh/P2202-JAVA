@@ -3,6 +3,8 @@ package GUI;
 import javax.swing.*;
 import java.awt.event.*;
 
+import fun.*;
+
 public class RegisterDialog extends JDialog {
     private JPanel contentPane;
     private JButton nextButton;
@@ -10,6 +12,7 @@ public class RegisterDialog extends JDialog {
     private JTextField username;
     private JPasswordField passwordField1;
     private JPasswordField passwordField2;
+    private JTextField phone;
 
     public RegisterDialog() {
         setContentPane(contentPane);
@@ -45,8 +48,24 @@ public class RegisterDialog extends JDialog {
     }
 
     private void onOK() {
+        String username = this.username.getText();
+        String pass1 = String.valueOf(this.passwordField1.getPassword());
+        System.out.println(pass1);
+        String pass2 = String.valueOf(this.passwordField2.getPassword());
+        String phone = this.phone.getText();
+        String haveerro = RegisterFUN.Register(username,pass1,pass2,phone);
 
-        SetquestionDialog dialog = new SetquestionDialog();
+        if (haveerro.equals("")){
+            this.setVisible(false);
+            JBDC_User.addUserData(username,pass1,phone);
+            SetquestionDialog dialog = new SetquestionDialog();
+            dialog.pack();
+            dialog.setVisible(true);
+            System.exit(0);
+        }else {
+            JOptionPane.showMessageDialog(this,haveerro);
+        }
+
     }
 
     private void onCancel() {

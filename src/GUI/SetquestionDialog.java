@@ -57,10 +57,5 @@ public class SetquestionDialog extends JDialog {
         dispose();
     }
 
-    public static void main(String[] args) {
-        SetquestionDialog dialog = new SetquestionDialog();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
-    }
+
 }
