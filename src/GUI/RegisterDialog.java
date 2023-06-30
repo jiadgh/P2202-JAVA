@@ -18,7 +18,7 @@ public class RegisterDialog extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(nextButton);
-
+        setLocationRelativeTo(LoginGUI.frame);
         nextButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onOK();
@@ -78,5 +78,11 @@ public class RegisterDialog extends JDialog {
         dialog.pack();
         dialog.setVisible(true);
         System.exit(0);
+    }
+    public RegisterDialog(String username,String pass1,String pass2,String phone){
+        this.username.setText(username);
+        this.passwordField1.setText(pass1);
+        this.passwordField2.setText(pass2);
+        this.phone.setText(phone);
     }
 }
