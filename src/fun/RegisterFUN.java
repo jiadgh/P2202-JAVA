@@ -2,9 +2,10 @@ package fun;
 import fun.*;
 public class RegisterFUN {
     public static String Register(String user,String pass1,String pass2,String phone){
-        if (user==""||pass1==""||pass2==""||phone==""){
+        if (user.trim().equals("")||pass1.trim().equals("")||pass2.trim().equals("")||phone.trim().equals("")){
             return "输入不能为空";
         }
+
         if (phone.length()!=11){
             return "手机号输入错误";
         }
