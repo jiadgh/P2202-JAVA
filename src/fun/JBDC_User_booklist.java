@@ -144,7 +144,7 @@ public class JBDC_User_booklist {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 //          select();
 //          deletebylistid(1);
-        insert(2,2,"1,3");
+//        insert(2,2,"1,3");
 //        update();
     }
 }

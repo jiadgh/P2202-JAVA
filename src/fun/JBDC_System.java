@@ -120,8 +120,8 @@ public class JBDC_System {
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
             ps=conn.prepareStatement("update system set borrowmaxnum = ? where borrowmaxnum = ?");
-            ps.setInt(1,1);
-            ps.setInt(2,2);
+            ps.setInt(1,3);
+            ps.setInt(2,1);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("修改成功");
