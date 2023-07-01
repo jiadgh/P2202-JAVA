@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class JBDC_System {
     //查询
-    public static void select() throws ClassNotFoundException, SQLException {
+    public static void selectbyID(int id) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -14,10 +14,11 @@ public class JBDC_System {
             String user = "root";
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("select*from system");
+            ps=conn.prepareStatement("select*from system where id =?");
+            ps.setInt(1,id);
             rs= ps.executeQuery();
             while (rs.next()) {
-                int id = rs.getInt(1);//根据列的索引取值
+                rs.getInt(id);//根据列的索引取值
                 int borrowmaxnum = rs.getInt(2);
                 int borrowdatenum = rs.getInt(3);
                 System.out.println(id + "," + borrowmaxnum + "," + borrowdatenum + ",");
@@ -110,7 +111,7 @@ public class JBDC_System {
     }
 
     //更改
-    public static void update() throws ClassNotFoundException, SQLException {
+    public static void update(int borrowmaxnum1,int borrowmaxnum2) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -120,8 +121,8 @@ public class JBDC_System {
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
             ps=conn.prepareStatement("update system set borrowmaxnum = ? where borrowmaxnum = ?");
-            ps.setInt(1,3);
-            ps.setInt(2,1);
+            ps.setInt(1,borrowmaxnum2);
+            ps.setInt(2,borrowmaxnum1);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("修改成功");
@@ -143,9 +144,9 @@ public class JBDC_System {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//          select();
+//          selectbyID(2);
 //          deletebyID(1);
 //        insert(2,2,3);
-//        update();
+        update(1,3);
     }
 }

@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class JBDC_User_booklist {
     //查询
-    public static void select() throws ClassNotFoundException, SQLException {
+    public static void selectbyListid(int listid) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         ResultSet rs=null;
@@ -14,10 +14,11 @@ public class JBDC_User_booklist {
             String user = "root";
             String pass = "123";
             conn= DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("select*from user_booklist");
+            ps=conn.prepareStatement("select*from user_booklist where listid=?");
+            ps.setInt(1,listid);
             rs= ps.executeQuery();
             while (rs.next()) {
-                int listid = rs.getInt(1);//根据列的索引取值
+                rs.getInt(listid);//根据列的索引取值
                 int userid = rs.getInt(2);
                 int list = rs.getInt(3);
                 System.out.println(listid + "," + userid + "," + list + ",");
@@ -43,7 +44,7 @@ public class JBDC_User_booklist {
 
 
     //删除
-    public static void deletebylistid(int listid) throws ClassNotFoundException, SQLException {
+    public static void deletebyListid(int listid) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -108,43 +109,9 @@ public class JBDC_User_booklist {
         }
     }
 
-    //更改
-    public static void update() throws ClassNotFoundException, SQLException {
-        Connection conn=null;
-        PreparedStatement ps=null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/library";
-            String user = "root";
-            String pass = "123";
-            conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("update user_booklist set userid = ? where userid = ?");
-            ps.setInt(1,1);
-            ps.setInt(2,2);
-            int i=ps.executeUpdate();
-            if (i>0){
-                System.out.println("修改成功");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            try {
-                if (ps!=null){
-                    ps.close();
-                }
-                if (conn!=null){
-                    conn.close();
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
-
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//          select();
-//          deletebylistid(1);
+//          selectbyListid(2);
+//          deletebyListid(1);
 //        insert(2,2,"1,3");
-//        update();
     }
 }
