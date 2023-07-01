@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a02b89e-8c97-4c12-ac39-4ac4170ad449" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/RegisterDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/RegisterDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ReturnGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/SetquestionDialog.java" afterDir="false" />
-    </list>
+    <list default="true" id="7a02b89e-8c97-4c12-ac39-4ac4170ad449" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +20,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2RobxTjTwlcWNFh2pYRN3ucAgUE" />
   <component name="ProjectViewState">

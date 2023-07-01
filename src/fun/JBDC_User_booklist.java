@@ -84,9 +84,10 @@ public class JBDC_User_booklist {
             String user = "root";
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("insert into user_booklist values(?,?)");
-            ps.setInt(1,1);
+            ps=conn.prepareStatement("insert into user_booklist values(?,?,?)");
+            ps.setInt(1,2);
             ps.setInt(2,2);
+            ps.setInt(3,3);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("插入成功");
