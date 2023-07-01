@@ -75,7 +75,7 @@ public class JBDC_User_booklist {
     }
 
     //插入
-    public static void insert() throws ClassNotFoundException, SQLException {
+    public static void insert(int listid, int userid, String list) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -85,9 +85,9 @@ public class JBDC_User_booklist {
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
             ps=conn.prepareStatement("insert into user_booklist values(?,?,?)");
-            ps.setInt(1,2);
-            ps.setInt(2,2);
-            ps.setInt(3,3);
+            ps.setInt(1,listid);
+            ps.setInt(2,userid);
+            ps.setString(3,list);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("插入成功");
@@ -144,7 +144,7 @@ public class JBDC_User_booklist {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 //          select();
 //          deletebylistid(1);
-//        insert();
+        insert(2,2,"1,3");
 //        update();
     }
 }

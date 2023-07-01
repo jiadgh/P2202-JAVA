@@ -75,7 +75,7 @@ public class JBDC_System {
     }
 
     //插入
-    public static void insert() throws ClassNotFoundException, SQLException {
+    public static void insert(int id,int borrowmaxnum,int borrowdatenum) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -86,9 +86,9 @@ public class JBDC_System {
             conn=DriverManager.getConnection(url,user,pass);
             ps=conn.prepareStatement("DELETE FROM Table_name");
             ps=conn.prepareStatement("insert into system values(?,?,?)");
-            ps.setInt(1,2);
-            ps.setInt(2,2);
-            ps.setInt(3,3);
+            ps.setInt(1,id);
+            ps.setInt(2,borrowmaxnum);
+            ps.setInt(3,borrowdatenum);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("插入成功");
@@ -145,7 +145,7 @@ public class JBDC_System {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 //          select();
 //          deletebyID(1);
-//        insert();
+//        insert(2,2,3);
 //        update();
     }
 }
