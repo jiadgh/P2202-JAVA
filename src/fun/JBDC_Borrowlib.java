@@ -2,7 +2,7 @@ package fun;
 
 import java.sql.*;
 
-public class JBDC_System {
+public class JBDC_Borrowlib {
     //查询
     public static void selectbyID(int id) throws ClassNotFoundException, SQLException {
         Connection conn=null;
@@ -13,15 +13,18 @@ public class JBDC_System {
             String url = "jdbc:mysql://localhost:3306/library";
             String user = "root";
             String pass = "123";
-            conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("select*from system where id =?");
+            conn= DriverManager.getConnection(url,user,pass);
+            ps=conn.prepareStatement("select*from borrowlib where id =?");
             ps.setInt(1,id);
             rs= ps.executeQuery();
             while (rs.next()) {
                 rs.getInt(id);//根据列的索引取值
-                int borrowmaxnum = rs.getInt(2);
-                int borrowdatenum = rs.getInt(3);
-                System.out.println(id + "," + borrowmaxnum + "," + borrowdatenum + ",");
+                int BorrowBookID = rs.getInt(2);
+                int BorrowUserID = rs.getInt(3);
+                String BorrowDate = rs.getString(4);
+                String ReturnDate = rs.getString(5);
+                int status = rs.getInt(6);
+                System.out.println(id + "," + BorrowBookID + "," + BorrowUserID + ","+ BorrowDate + ","+ ReturnDate + ","+ status + ",");
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -53,7 +56,7 @@ public class JBDC_System {
             String user = "root";
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("delete from system where borrowmaxnum=?");
+            ps=conn.prepareStatement("delete from borrowlib where BorrowBookID=?");
             ps.setInt(id,1);
             int i=ps.executeUpdate();
             if (i>0){
@@ -76,7 +79,7 @@ public class JBDC_System {
     }
 
     //插入
-    public static void insert(int id,int borrowmaxnum,int borrowdatenum) throws ClassNotFoundException, SQLException {
+    public static void insert(int id,int BorrowBookID,int BorrowUserID,String BorrowDate,String ReturnDate,int status) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -86,10 +89,13 @@ public class JBDC_System {
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
             ps=conn.prepareStatement("DELETE FROM Table_name");
-            ps=conn.prepareStatement("insert into system values(?,?,?)");
+            ps=conn.prepareStatement("insert into borrowlib values(?,?,?,?,?,?)");
             ps.setInt(1,id);
-            ps.setInt(2,borrowmaxnum);
-            ps.setInt(3,borrowdatenum);
+            ps.setInt(2,BorrowBookID);
+            ps.setInt(3,BorrowUserID);
+            ps.setString(4,BorrowDate);
+            ps.setString(5,ReturnDate);
+            ps.setInt(6,status);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("插入成功");
@@ -111,7 +117,7 @@ public class JBDC_System {
     }
 
     //更改
-    public static void update(int id,int borrowmaxnum,int borrowdatenum) throws ClassNotFoundException, SQLException {
+    public static void update(int id,int BorrowBookID,int BorrowUserID,String BorrowDate,String ReturnDate,int status) throws ClassNotFoundException, SQLException {
         Connection conn=null;
         PreparedStatement ps=null;
         try {
@@ -120,10 +126,13 @@ public class JBDC_System {
             String user = "root";
             String pass = "123";
             conn=DriverManager.getConnection(url,user,pass);
-            ps=conn.prepareStatement("update system set borrowmaxnum = ?,borrowdatenum=? where id = ?");
-            ps.setInt(3,id);
-            ps.setInt(1,borrowmaxnum);
-            ps.setInt(2,borrowdatenum);
+            ps=conn.prepareStatement("update borrowlib set BorrowBookID = ?,BorrowUserID=?,BorrowDate=?,ReturnDate=?,status=? where id = ?");
+            ps.setInt(6,id);
+            ps.setInt(1,BorrowBookID);
+            ps.setInt(2,BorrowUserID);
+            ps.setString(3,BorrowDate);
+            ps.setString(4,ReturnDate);
+            ps.setInt(5,status);
             int i=ps.executeUpdate();
             if (i>0){
                 System.out.println("修改成功");
@@ -145,9 +154,9 @@ public class JBDC_System {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-//          selectbyID(2);
+//          selectbyID(1);
 //          deletebyID(1);
-//        insert(2,2,3);
-//        update(1,3,3);
+//        insert(1,1,1,"2022-07-01","2022-07-03",6);
+//        update(1,1,2,"2022-07-01","2022-07-03",2);
     }
 }
